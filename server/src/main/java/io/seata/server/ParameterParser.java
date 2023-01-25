@@ -40,7 +40,7 @@ public class ParameterParser {
     @Parameter(names = "--help", help = true)
     private boolean help;
     @Parameter(names = {"--host", "-h"}, description = "The ip to register to registry center.", order = 1)
-    private String host;
+    private String host = "10.4.104.171";
     @Parameter(names = {"--port", "-p"}, description = "The port to listen.", order = 2)
     private int port = SERVER_DEFAULT_PORT;
     @Parameter(names = {"--storeMode", "-m"}, description = "log store mode : file, db", order = 3)
@@ -64,7 +64,7 @@ public class ParameterParser {
         try {
             if (ContainerHelper.isRunningInContainer()) {
                 this.seataEnv = ContainerHelper.getEnv();
-                this.host = ContainerHelper.getHost();
+                this.host = "10.4.104.171";
                 this.port = ContainerHelper.getPort();
                 this.serverNode = ContainerHelper.getServerNode();
                 this.storeMode = ContainerHelper.getStoreMode();
